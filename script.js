@@ -1,14 +1,23 @@
-const btn = document.querySelector("#btn")
+const colorSelect = document.querySelector("#colorSelect")
+const colorBox = document.querySelector("#colorBox")
 
-const handleClick1 = () => {
-    console.log("첫 번째 함수");
-};
 
-const handleClick2 = () => {
-    console.log("두 번째 함수")
-};
+colorBox.style.width = "100px"
+colorBox.style.height = "100px"
+colorBox.style.backgroundColor = "gray"
+colorBox.style.marginTop = "10px"
 
-btn.addEventListener("click", handleClick1);
-btn.addEventListener("click", handleClick2)
+colorSelect.addEventListener("change", (e) => {
+    console.log(e)
+    colorBox.style.backgroundColor = e.target.value
+})
 
-btn.removeEventListener("click", handleClick1)
+const nameForm = document.querySelector("#nameForm")
+const nameInput = document.querySelector("#nameInput")
+const submitResult = document.querySelector("#submitResult")
+
+nameForm.addEventListener("submit", (e) => {
+    console.log(e)
+    e.preventDefault()
+    submitResult.innerText = `안녕하세요, ${e.target[0].value}님! `
+})
